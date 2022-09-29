@@ -11,5 +11,10 @@ const { fetchMyIP, fetchCoordsByIP } = require('./iss');
 }); */
 
 fetchCoordsByIP("71.17.165.131", (error, data) => {
+  if (error) {
+    console.log("Data input failed!", error); 
+  }
+
+  console.log(data);
 
 });
