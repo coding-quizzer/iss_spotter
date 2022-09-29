@@ -35,6 +35,19 @@ const fetchMyIP = function(callback) {
 };
 
 const fetchCoordsByIP = function(ip, callback) {
+
+  request(`https://ipwho.is/${ip}`, (error, response, body) => {
+    if (error) {
+      callback(error, null);
+      return;
+    }
+
+    let bodyObj = JSON.parse(body);
+    const latitude = bodyObj.latitude;
+    const longitude = bodyObj.longitude;
+
+    callback(null, {latitude, longitude});
+  });
   
 };
 
