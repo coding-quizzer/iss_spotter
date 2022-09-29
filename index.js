@@ -1,28 +1,11 @@
-/**
- * Makes a single API request to retreive the user's IP address
- * 
- * Input:
- *    A callback (to pass back an error or the IP string)
- * 
- * Returns (vis Callback):
- *  - An error, if any (nullable);
- * 
- * - The IP address as a string (null if error). Example: "162.245.144.188"
- */
+const { fetchMyIP } = require('./iss');
 
-const request = require('request');
 
-const fetchMyIP = function(callback) {
+fetchMyIP((error, ip) => {
+  if (error) {
+    console.log("It didn't work!", error);    
+  }
 
-  request('https://api.ipify.org/?format=json', (error, message, body) => {
-    if (error) {
-      console.log("It didn't work!, error");
-    }
+  console.log("It worked! Returned IP:", ip);
 
-    const ipObject = JSON.parse(body);
-    const ipAddress = ipObject.ip;
-    console.log("It worked! Returned IP:", ipAddress);
-  });
-};
-
-fetchMyIP();
+});
