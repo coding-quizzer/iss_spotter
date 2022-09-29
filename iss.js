@@ -42,7 +42,20 @@ const fetchCoordsByIP = function(ip, callback) {
       return;
     }
 
+    if (response.statusCode !== 200) {
+
+      const msg = `Status Code ${response.statusCode} when fetching coords, Response: ${body}`;
+      callback(Error(msg), null);
+      return;
+    }
+
     let bodyObj = JSON.parse(body);
+
+    if (!bodyObj.sucess) {
+      callback(`Sucess code was false. Server message says: ${bodyObj.message}`, null);
+      return;
+    }
+
     const latitude = bodyObj.latitude;
     const longitude = bodyObj.longitude;
 
