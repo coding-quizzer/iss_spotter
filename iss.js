@@ -52,7 +52,7 @@ const fetchCoordsByIP = function(ip, callback) {
     let bodyObj = JSON.parse(body);
 
     if (!bodyObj.sucess) {
-      callback(`Sucess code was false. Server message says: ${bodyObj.message}`, null);
+      callback(`Sucess code was ${bodyObj.sucess}. Server message says: ${bodyObj.message} when fetching for ip ${ip}`, null);
       return;
     }
 
