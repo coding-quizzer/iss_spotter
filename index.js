@@ -10,12 +10,12 @@ const { fetchMyIP, fetchCoordsByIP } = require('./iss');
 
 }); */
 
-fetchCoordsByIP("4", (error, data) => {
+/* fetchCoordsByIP("4", (error, data) => {
   if (error) {
-    console.log("Operation failed! Error:", error); 
+    console.log("Operation failed! Error:", error);
     return;
   }
 
   console.log(data);
 
-});
+}); */
