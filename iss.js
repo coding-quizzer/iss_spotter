@@ -34,4 +34,8 @@ const fetchMyIP = function(callback) {
   });
 };
 
-module.exports = { fetchMyIP };
+const fetchCoordsByIP = function(ip, callback) {
+  
+};
+
+module.exports = { fetchMyIP, fetchCoordsByIP };
