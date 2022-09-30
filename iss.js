@@ -81,6 +81,8 @@ const fetchFlyoverTimesForISS = function(lat, long, callback) {
 
     const bodyObj = JSON.parse(body);
 
+    console.log(bodyObj);
+
     callback(null, bodyObj.response);
   });
 };
