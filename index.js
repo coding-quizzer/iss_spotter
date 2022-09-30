@@ -1,4 +1,4 @@
-const { fetchMyIP, fetchCoordsByIP, fetchFlyoverTimesForISS } = require('./iss');
+const { nextISSTimesForMyLocation } = require('./iss');
 
 
 /* fetchMyIP((error, ip) => {
@@ -20,11 +20,21 @@ const { fetchMyIP, fetchCoordsByIP, fetchFlyoverTimesForISS } = require('./iss')
 
 }); */
 
-fetchFlyoverTimesForISS(-104.613, 501.489, (error, data) => {
+/* fetchFlyoverTimesForISS(-104.613, 501.489, (error, data) => {
   if (error) {
     console.log("Failed to get iss flyover times! Error", error);
     return;
   }
 
   console.log(data);
+}); */
+
+nextISSTimesForMyLocation((error, passTimes) => {
+
+  if (error) {
+    return console.log("Error stitching together times! Error: ");
+  }
+
+  console.log(passTimes);
 });
+
