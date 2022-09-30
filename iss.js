@@ -64,23 +64,24 @@ const fetchCoordsByIP = function(ip, callback) {
   
 };
 
-const fetchFlyoverTimesForISS = function (long, lat, callback) {
+const fetchFlyoverTimesForISS = function(long, lat, callback) {
+  
   request(`https://iss-flyover.herokuapp.com/json/?lat=${lat}&lon=${long}`, (error, response, body) => {
-      if(error) {
-        callback(error, null);
-        return;
-      }
+    if (error) {
+      callback(error, null);
+      return;
+    }
 
-      if (response.statusCode !== 200) {
+    if (response.statusCode !== 200) {
 
-        const msg = `Status Code ${response.statusCode} when fetching ISS flyover times, Response: ${body}`;
-        callback(Error(msg), null);
-        return;
-      }
+      const msg = `Status Code ${response.statusCode} when fetching ISS flyover times, Response: ${body}`;
+      callback(Error(msg), null);
+      return;
+    }
 
-      const bodyObj = JSON.parse(body);
+    const bodyObj = JSON.parse(body);
 
-      callback(null, bodyObj.response);
+    callback(null, bodyObj.response);
   });
 };
 
