@@ -32,7 +32,7 @@ const { nextISSTimesForMyLocation } = require('./iss');
 nextISSTimesForMyLocation((error, passTimes) => {
 
   if (error) {
-    return console.log("Error stitching together times! Error: ");
+    return console.log("Error stitching together times! Error: ", error);
   }
 
   console.log(passTimes);
