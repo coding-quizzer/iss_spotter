@@ -20,7 +20,7 @@ const { fetchMyIP, fetchCoordsByIP, fetchFlyoverTimesForISS } = require('./iss')
 
 }); */
 
-fetchFlyoverTimesForISS(50.489, -104.613, (error, data) => {
+fetchFlyoverTimesForISS(-104.613, 50.489, (error, data) => {
   if (error) {
     console.log("Failed to get iss flyover times! Error", error);
     return;
